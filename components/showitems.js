@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, SafeAreaView, SectionList } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, SectionList, Image } from 'react-native';
+import { Card, ListItem, Button, Icon, CheckBox } from 'react-native-elements'
+
 
 import Constants from 'expo-constants';
 const ITEMS = {
@@ -75,12 +77,34 @@ const ITEMS = {
 		}
 	]
 };
-const Item = ({ title }) => (
-	<View style={styles.item}>
-		{console.log('title', title)}
-		<Text style={styles.title}>{title.name}</Text>
-	</View>
-);
+function Item({ title }) {
+	const [check, setCheck] = useState(false)
+
+	return (
+
+		<Card style={styles.container} >
+			<Card.Title>{title.name}</Card.Title>
+			<Card.Divider />
+			<Card.Image style={styles.item} source={{
+				uri: `${title.image}`,
+			}} />
+			<Text style={{ marginBottom: 10 }}>
+				{title.price +'JD'}
+			</Text>
+			<CheckBox
+				center
+				title='Click Here'
+				onPress={() =>setCheck(!check )}
+				checked={check}
+			/>
+		</Card>
+	);
+	// <View style={styles.item}>
+	// 	{console.log('title', title)}
+	// 	<Text style={styles.title}>{title.name}
+	// 	</Text>
+	// </View>
+};
 
 function showitems({ route, navigation }) {
 	let option = route.params.id;
@@ -104,9 +128,8 @@ const styles = StyleSheet.create({
 		marginHorizontal: 16
 	},
 	item: {
-		backgroundColor: '#f9c2ff',
-		padding: 20,
-		marginVertical: 8
+		width: 50,
+		height: 50,
 	},
 	header: {
 		fontSize: 32,
