@@ -27,7 +27,8 @@ function ListItem(props) {
 			onPress={() => {
 				/* 1. Navigate to the Details route with params */
 				navigation.navigate('showitems', {
-					id: `${props.item.id}`
+					id: `${props.item.id}`,
+					image: `${props.item.image}`
 				});
 			}}
 		>

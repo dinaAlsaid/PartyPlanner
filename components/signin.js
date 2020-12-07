@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View ,Alert } from 'react-native';
+import { Button, TextInput, View ,Alert, ImageBackground,StyleSheet} from 'react-native';
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
+const image = { uri: "https://i.pinimg.com/564x/33/7c/3b/337c3be72f3877ef7f35f4fd5328f301.jpg" };
 
 
 function signin(props) {
@@ -25,6 +26,7 @@ function signin(props) {
   );
 
   return (
+
     <View>
       <TextInput
         textContentType='emailAddress'
@@ -44,7 +46,7 @@ function signin(props) {
         keyboardType='default'
         secureTextEntry />
 
-      <Button title='Sign in' onPress={() => {
+      <Button title='Sign in' color='#93e4d0' onPress={() => {
         console.log(email, password)
         if (email && password) {
           navigation.navigate('PartyOptions')
@@ -55,7 +57,22 @@ function signin(props) {
       />
 
     </View>
+
   );
 }
+const styles1 = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin:0,
 
+  },
+  image: {
+    flex: 1,
+    resizeMode: "stretch",
+    justifyContent: "center",  
+  },
+});
 export default signin;

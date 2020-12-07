@@ -11,6 +11,8 @@ import PartyOptions from './components/partyOptions';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import showitems from './components/showitems.js';
+import optionsForm from './components/optionsForm.js'
+import FinalPage from './components/finalPage.js';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -22,6 +24,9 @@ export default function App() {
 				<Stack.Screen name="signin" component={Signin} />
 				<Stack.Screen name="PartyOptions" component={PartyOptions} />
 				<Stack.Screen name="showitems" component={showitems} />
+				<Stack.Screen name="optionsForm" component={optionsForm} />
+				<Stack.Screen name="FinalPage" component={FinalPage} />
+
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
