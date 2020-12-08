@@ -1,33 +1,42 @@
 import React from 'react';
-import { Button,StyleSheet,ImageBackground, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, ImageBackground, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-const image = { uri: "https://i.pinimg.com/564x/33/7c/3b/337c3be72f3877ef7f35f4fd5328f301.jpg" };
+const image = { uri: "https://i.pinimg.com/564x/7d/ca/e6/7dcae6aaf08ecb5badb85e4e6ef42d08.jpg" };
 function login(props) {
   const navigation = useNavigation();
   return (
     <ImageBackground source={image} style={styles1.image}>
-    <View  style={styles1.container}>
+      <View style={styles1.container}>
 
-    <Button color='#93e4d0' 
-      onPress={() => {
-        console.log('sign in');
-        navigation.navigate('signin');
-      }} title='Sign in' />
-      <Button type='solid' color='#93e4d0'
-      onPress={() => {
-        console.log('sign up');
-        navigation.navigate('signup');
-      }} title='Sign up' />
-      <Button color='#93e4d0' type='solid' style={styles1.button}
-      onPress={() => {
-        console.log('Visitor');
-        navigation.navigate('PartyOptions')
-      }} title='Sign in as a visitor' />
-   
-  
-  </View>
+        <View style={styles1.button}>
+
+          <Button color='#000'
+            onPress={() => {
+              console.log('sign in');
+              navigation.navigate('signin');
+            }} title='Sign in' />
+
+        </View>
+        <View style={styles1.button}>
+
+          <Button  color='#000'
+            onPress={() => {
+              console.log('sign up');
+              navigation.navigate('signup');
+            }} title='Sign up' />
+        </View>
+        <View style={styles1.button}>
+
+
+          <Button color='#000' 
+            onPress={() => {
+              console.log('Visitor');
+              navigation.navigate('PartyOptions')
+            }} title='Sign in as a visitor' />
+        </View>
+      </View>
     </ImageBackground>
-    
+
 
   );
 }
@@ -37,13 +46,13 @@ const styles1 = StyleSheet.create({
     flexDirection: "column",
     justifyContent: 'center',
     alignItems: 'center',
-    margin:0,
+    // marginTop: 50,
 
   },
   image: {
     flex: 1,
     resizeMode: "stretch",
-    justifyContent: "center",  
+    justifyContent: "center",
   },
   text: {
     color: "white",
@@ -54,8 +63,8 @@ const styles1 = StyleSheet.create({
     justifyContent: 'center',
 
   },
-  button:{
-    marginTop:5,
+  button: {
+    marginTop: 5,
   }
 });
 

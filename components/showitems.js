@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View, SafeAreaView, SectionList, Image, TouchableOpacity } from 'react-native';
-import { Card, ListItem, Button, Icon, CheckBox } from 'react-native-elements';
+import { Button,StyleSheet, Text, View, SafeAreaView, SectionList, Image, TouchableOpacity } from 'react-native';
+import { Card, ListItem,  Icon, CheckBox } from 'react-native-elements';
 import Constants from 'expo-constants';
 
 let checkedArray = [];
@@ -242,11 +242,10 @@ function Item({ title1 }) {
 					uri: `${title1.image}`
 				}}
 			/>
-			<Text style={{ marginBottom: 10 }}>{title1.price + 'JD'}</Text>
-			<CheckBox center title="Click Here" onPress={() => {
+			<Text style={{ marginBottom: 10,fontSize:20,textAlign:'center' }}>{title1.price + 'JD'}</Text>
+			<CheckBox center title="Add to Cart" onPress={() => {
 				setCheck(!check)
 				checkedArray.push(title1);
-				console.log("jthdjtfl'oji",checkedArray);
 			}} checked={check} />
 		</Card>
 	);
@@ -264,7 +263,7 @@ function showitems({ route, navigation }) {
 				renderItem={({ item }) => <Item title1={item} />}
 				renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
 			/>
-			<Button title='Submit' onPress={() => {
+			<Button title='Submit' color="#000" onPress={() => {
 				navigation.navigate('optionsForm', {checkedArray});
 			}}
 			/>
@@ -276,11 +275,13 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		marginTop: Constants.statusBarHeight,
-		marginHorizontal: 16
+		marginHorizontal: 16,
+		justifyContent: 'center',
+    alignItems: 'center',
 	},
 	item: {
-		width: 50,
-		height: 50
+		width: 200,
+		height: 200,
 	},
 	header: {
 		fontSize: 32,
